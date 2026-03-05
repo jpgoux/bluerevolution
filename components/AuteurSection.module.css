@@ -1,0 +1,209 @@
+.section {
+  background: linear-gradient(to bottom, #040d21, #020508);
+  padding: var(--section-padding);
+}
+
+/* ── Grille 2 colonnes ── */
+.grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 4rem;
+  align-items: start;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ── Photo ── */
+.photoWrap {
+  position: relative;
+}
+
+.photo {
+  position: relative;
+  width: 200px;
+  aspect-ratio: 464 / 768; /* ratio natif de la photo */
+  border: 1px solid rgba(80, 140, 255, 0.1);
+  overflow: hidden;
+  background: #020508;
+}
+
+/* ── Texte ── */
+.eyebrow {
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: rgba(0, 191, 255, 0.6);
+  margin-bottom: 0.7rem;
+}
+
+.text h2 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.15;
+  color: var(--blanc);
+  margin-bottom: 0.3rem;
+}
+
+.role {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(200, 212, 232, 0.5);
+  margin-bottom: 0.6rem;
+}
+
+.site {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(0, 191, 255, 0.5);
+  text-decoration: none;
+  margin-bottom: 1.4rem;
+  transition: color 0.3s;
+}
+
+.site:hover {
+  color: rgba(0, 191, 255, 0.85);
+}
+
+.bioCourte {
+  font-size: 0.82rem;
+  line-height: 1.85;
+  font-weight: 200;
+  color: rgba(200, 212, 232, 0.5);
+  margin-bottom: 0.8rem;
+}
+
+/* ── Toggle bio complète ── */
+.toggleBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: rgba(0, 191, 255, 0.5);
+  cursor: pointer;
+  margin-bottom: 0.2rem;
+  transition: color 0.3s;
+}
+
+.toggleBtn:hover {
+  color: rgba(0, 191, 255, 0.85);
+}
+
+.toggleArrow {
+  font-size: 0.5rem;
+  opacity: 0.7;
+}
+
+/* ── Bio développée ── */
+.bioFull {
+  overflow: hidden;
+  margin-top: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.bioFull p {
+  font-size: 0.82rem;
+  line-height: 1.85;
+  font-weight: 200;
+  color: rgba(200, 212, 232, 0.45);
+  margin-bottom: 0.9rem;
+}
+
+.bioFull p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Tags ── */
+.tags {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  margin-bottom: 1.4rem;
+}
+
+.tag {
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  font-weight: 200;
+  color: rgba(200, 212, 232, 0.3);
+  border: 1px solid rgba(80, 140, 255, 0.12);
+  padding: 0.3rem 0.7rem;
+}
+
+/* ── Liens réseaux ── */
+.links {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Réseaux sociaux — blanc bien visible */
+.link {
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: rgba(200, 212, 232, 0.75);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(200, 212, 232, 0.25);
+  padding-bottom: 0.2rem;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.link:hover {
+  color: var(--blanc);
+  border-color: rgba(200, 212, 232, 0.6);
+}
+
+/* Bouton Contact — bleu bioluminescent très visible */
+.linkContact {
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: var(--bleu-bio);
+  text-decoration: none;
+  border: 1px solid rgba(0, 191, 255, 0.45);
+  padding: 0.45rem 1rem;
+  transition: color 0.3s, border-color 0.3s, background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 12px rgba(0, 191, 255, 0.15);
+}
+
+.linkContact:hover {
+  color: var(--blanc);
+  background: rgba(0, 191, 255, 0.15);
+  border-color: var(--bleu-bio);
+  box-shadow: 0 0 22px rgba(0, 191, 255, 0.35);
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .photo {
+    width: 140px;
+    margin: 0 auto;
+  }
+
+  .tags {
+    gap: 0.4rem;
+  }
+}

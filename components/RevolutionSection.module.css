@@ -1,0 +1,329 @@
+/* ═══════════════════════════════════════════════════
+   Section La Révolution bleue
+   Mobile-first — breakpoint desktop : min-width 769px
+   ═══════════════════════════════════════════════════ */
+
+/* ── Accentuation par concept (RGB bruts pour rgba()) ── */
+.cardHomo   { --accent-rgb: 0, 191, 255; }   /* bleu-bio   */
+.cardPrince { --accent-rgb: 200, 168, 75; }  /* or         */
+.cardGrotte { --accent-rgb: 0, 136, 255; }   /* bleu-bio-2 */
+.cardKlein  { --accent-rgb: 0, 51, 160; }    /* bleu-klein */
+
+/* ══════════════════════════════
+   Section
+   ══════════════════════════════ */
+
+.section {
+  position: relative;
+  padding: 6rem 1.5rem;
+  overflow: hidden;
+  /* Fond légèrement différencié pour que les cartes ressortent */
+  background: linear-gradient(
+    to bottom,
+    #020810 0%,
+    #030b1c 50%,
+    #020a18 100%
+  );
+}
+
+/* ══════════════════════════════
+   Lumières bioluminescentes
+   ══════════════════════════════ */
+
+.bioLights {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.light {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0;
+  animation: bioFloat 12s ease-in-out infinite;
+}
+
+.l1 {
+  width: min(320px, 60vw);
+  height: min(320px, 60vw);
+  background: rgba(0, 191, 255, 1);
+  top: 5%;
+  left: -5%;
+  animation-duration: 13s;
+  animation-delay: 0s;
+}
+
+.l2 {
+  width: min(220px, 45vw);
+  height: min(220px, 45vw);
+  background: rgba(0, 136, 255, 1);
+  bottom: 10%;
+  right: -4%;
+  animation-duration: 10s;
+  animation-delay: -4s;
+}
+
+.l3 {
+  width: min(260px, 50vw);
+  height: min(260px, 50vw);
+  background: rgba(0, 51, 160, 1);
+  top: 55%;
+  left: 38%;
+  animation-duration: 15s;
+  animation-delay: -8s;
+}
+
+.l4 {
+  width: min(180px, 35vw);
+  height: min(180px, 35vw);
+  background: rgba(0, 191, 255, 1);
+  top: 25%;
+  right: 20%;
+  animation-duration: 11s;
+  animation-delay: -2s;
+}
+
+@keyframes bioFloat {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  15%  { opacity: 0.05; }
+  50%  {
+    opacity: 0.09;
+    transform: translateY(-25px) scale(1.08);
+  }
+  85%  { opacity: 0.05; }
+}
+
+/* ══════════════════════════════
+   Contenu
+   ══════════════════════════════ */
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── Intro centrée ── */
+.intro {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  color: var(--bleu-bio);
+}
+
+.h2 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.9rem, 6.5vw, 3rem);
+  line-height: 1.18;
+  color: var(--blanc);
+  margin: 1rem 0 1.6rem;
+}
+
+/* Intro en italique Cormorant — même tonalité que les citations Paul Gardner */
+.introText {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(0.95rem, 2vw, 1.08rem);
+  line-height: 1.85;
+  color: var(--blanc-2);
+  opacity: 0.8;
+}
+
+/* Trait bioluminescent entre l'intro et la grille */
+.divider {
+  width: 1px;
+  height: 3rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 191, 255, 0.5),
+    transparent
+  );
+  margin: 2.8rem auto 0;
+}
+
+/* ══════════════════════════════
+   Grille 2×2
+   ══════════════════════════════ */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;               /* joint serré — les cartes forment un bloc */
+  margin-top: 3rem;
+  /* Contour global de la grille */
+  border: 1px solid rgba(80, 140, 255, 0.14);
+}
+
+/* ══════════════════════════════
+   Carte concept
+   ══════════════════════════════ */
+
+.card {
+  padding: 2rem 1.8rem 2.2rem;
+  /* Surface en verre dépoli — clairement visible sur le fond sombre */
+  background: rgba(5, 18, 52, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  /* Bordure colorée en haut selon le concept */
+  border-top: 2px solid rgba(var(--accent-rgb), 0.6);
+  /* Séparateur interne entre les cartes */
+  border-right: 1px solid rgba(80, 140, 255, 0.1);
+  border-bottom: 1px solid rgba(80, 140, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s, border-top-color 0.4s;
+}
+
+/* Halo interne doux au coin supérieur droit */
+.card::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(var(--accent-rgb), 1);
+  filter: blur(80px);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.card:hover {
+  background: rgba(6, 22, 60, 0.9);
+  border-top-color: rgba(var(--accent-rgb), 0.9);
+}
+
+.card:hover::before {
+  opacity: 0.08;
+}
+
+/* ── Numéro grand format ── */
+
+.cardNumber {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  font-weight: 300;
+  line-height: 1;
+  color: #00FFFF;
+  margin-bottom: 1.2rem;
+  /* Glow bioluminescent en couches */
+  text-shadow:
+    0 0 12px rgba(0, 255, 255, 0.75),
+    0 0 30px rgba(0, 255, 255, 0.4),
+    0 0 70px rgba(0, 255, 255, 0.18);
+  transition: text-shadow 0.4s;
+}
+
+.card:hover .cardNumber {
+  text-shadow:
+    0 0 14px rgba(0, 255, 255, 0.9),
+    0 0 40px rgba(0, 255, 255, 0.55),
+    0 0 90px rgba(0, 255, 255, 0.25);
+}
+
+/* ── Éléments de la carte ── */
+
+.cardNum {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.52rem;
+  font-weight: 200;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(var(--accent-rgb), 0.65);
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  line-height: 1.2;
+  color: var(--blanc);
+  margin-bottom: 0.9rem;
+}
+
+.cardText {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.85;
+  font-weight: 200;
+  color: rgba(200, 212, 232, 0.58);
+}
+
+/* ══════════════════════════════
+   Fallback backdrop-filter (Firefox Android)
+   ══════════════════════════════ */
+
+@supports not (backdrop-filter: blur(1px)) {
+  .card {
+    background: rgba(3, 12, 38, 0.97);
+  }
+}
+
+/* ══════════════════════════════
+   Desktop — ≥ 769px
+   ══════════════════════════════ */
+
+@media (min-width: 769px) {
+  .section {
+    padding: 9rem 2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    margin-top: 4rem;
+  }
+
+  .card {
+    padding: 2.4rem 2.2rem 2.6rem;
+  }
+}
+
+/* ══════════════════════════════
+   Très petits mobiles — ≤ 390px
+   ══════════════════════════════ */
+
+@media (max-width: 390px) {
+  .section {
+    padding: 5rem 1.25rem;
+  }
+
+  .h2 {
+    font-size: 1.75rem;
+  }
+
+  .card {
+    padding: 1.6rem 1.4rem 1.8rem;
+  }
+}
+
+/* ══════════════════════════════
+   prefers-reduced-motion
+   ══════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .light {
+    animation: none;
+    opacity: 0.04;
+  }
+
+  .card,
+  .card::before {
+    transition: none;
+  }
+}

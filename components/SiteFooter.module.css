@@ -1,0 +1,114 @@
+.footer {
+  padding: 2.5rem 3rem;
+  background: var(--noir);
+  border-top: 1px solid rgba(80, 140, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+/* ── Marque ── */
+.marque {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 1.15rem;
+  letter-spacing: 0.18em;
+  color: rgba(200, 212, 232, 0.28);
+  white-space: nowrap;
+}
+
+/* ── Navigation ── */
+.nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.navLink {
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: rgba(200, 212, 232, 0.22);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navLink:hover {
+  color: rgba(200, 212, 232, 0.6);
+}
+
+/* ── Droite : copyright + langue ── */
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.copy {
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  font-weight: 200;
+  color: rgba(200, 212, 232, 0.14);
+  white-space: nowrap;
+}
+
+.langSwitch {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.langBtn,
+.langActive {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  color: rgba(200, 212, 232, 0.22);
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.langActive {
+  color: rgba(200, 212, 232, 0.7);
+}
+
+.langBtn:hover {
+  color: rgba(200, 212, 232, 0.6);
+}
+
+.langSep {
+  color: rgba(200, 212, 232, 0.1);
+  font-size: 0.5rem;
+  user-select: none;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .nav {
+    gap: 1.2rem;
+    justify-content: flex-start;
+  }
+
+  .right {
+    align-items: flex-start;
+  }
+}

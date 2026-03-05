@@ -1,0 +1,409 @@
+/* ═══════════════════════════════════════════════
+   SEUIL — Page d'entrée
+   z-index : canvas(1) < heroBg(2) < halo/ground(2)
+             < vignette(3) < main(10) < chrome(100)
+   ═══════════════════════════════════════════════ */
+
+/* ── MAIN ── */
+.main {
+  position: relative;
+  z-index: 10;
+}
+
+.seuil {
+  min-height: 100vh;
+  min-height: 100dvh; /* Corrige le bug iOS address bar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 10rem;
+  text-align: center;
+}
+
+/* ── FOND — semi-transparent pour laisser filtrer les étoiles canvas ── */
+.heroBg {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 85% 75% at 60% 28%, rgba(0, 35, 120, 0.2) 0%, transparent 62%),
+    radial-gradient(ellipse 50% 55% at 50% 102%, rgba(8, 18, 50, 0.85) 0%, transparent 58%),
+    linear-gradient(175deg, rgba(2, 8, 16, 0.82) 0%, rgba(3, 13, 34, 0.78) 45%, rgba(2, 7, 18, 0.82) 100%);
+}
+
+.earthHalo {
+  position: fixed;
+  z-index: 2;
+  pointer-events: none;
+  top: -18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 66vw;
+  height: 66vw;
+  max-width: 760px;
+  max-height: 760px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 44% 44%,
+    rgba(255, 215, 100, 0.04) 0%,
+    rgba(15, 60, 190, 0.17) 28%,
+    rgba(0, 22, 88, 0.2) 52%,
+    transparent 70%
+  );
+  box-shadow: 0 0 170px 65px rgba(0, 22, 100, 0.13);
+  animation: breathe 9s ease-in-out infinite;
+}
+
+.moonGround {
+  position: fixed;
+  z-index: 2;
+  pointer-events: none;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(3, 9, 26, 0.55) 35%,
+    rgba(2, 5, 16, 0.94) 78%,
+    #020508 100%
+  );
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 34%, rgba(2, 5, 8, 0.55) 100%),
+    linear-gradient(
+      to bottom,
+      rgba(2, 5, 8, 0.32) 0%,
+      transparent 16%,
+      transparent 74%,
+      rgba(2, 5, 8, 0.92) 100%
+    );
+}
+
+/* ── CHROME ── */
+.siteLabel {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: rgba(200, 212, 232, 0.35);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ── CITATION PAUL GARDNER ── */
+.paulCitation {
+  max-width: 640px;
+  width: 100%;
+}
+
+.paulCitation p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.6;
+  color: var(--blanc-2);
+  text-shadow: 0 0 80px rgba(0, 80, 220, 0.3);
+}
+
+.paulCitation cite {
+  display: block;
+  margin-top: 1.8rem;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 200;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--or);
+}
+
+/* ── TITRE HERO ── */
+.heroTitle {
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.heroTitle h1 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  letter-spacing: 0.14em;
+  line-height: 0.92;
+  text-transform: uppercase;
+  color: var(--blanc);
+}
+
+/* "BLEUE" — rempli, bleu magique, glow bioluminescent */
+.heroTitle h1 em {
+  display: block;
+  font-style: normal;
+  color: #5ABAFF;
+  -webkit-text-stroke: 0;
+  letter-spacing: 0.22em;
+  text-shadow:
+    0 0 18px rgba(90, 186, 255, 0.95),
+    0 0 45px rgba(60, 155, 255, 0.65),
+    0 0 90px rgba(30, 110, 240, 0.35),
+    0 0 180px rgba(10, 70, 200, 0.15);
+}
+
+@keyframes magicBlueGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 18px rgba(90, 186, 255, 0.95),
+      0 0 45px rgba(60, 155, 255, 0.65),
+      0 0 90px rgba(30, 110, 240, 0.35),
+      0 0 180px rgba(10, 70, 200, 0.15);
+  }
+  50% {
+    text-shadow:
+      0 0 28px rgba(130, 210, 255, 1),
+      0 0 65px rgba(90, 175, 255, 0.8),
+      0 0 130px rgba(50, 135, 245, 0.5),
+      0 0 260px rgba(20, 85, 210, 0.22);
+  }
+}
+
+/* EN : REVOLUTION en contour, BLUE rempli bleu + glow */
+.heroTitleEn h1 {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(90, 150, 255, 0.55);
+}
+
+.heroTitleEn h1 em {
+  color: #5ABAFF;
+  -webkit-text-stroke: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroTitle h1 em {
+    animation: none;
+  }
+}
+
+.sub {
+  margin-top: 1.1rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: rgba(200, 212, 232, 0.38);
+}
+
+/* ── NEWSLETTER ── */
+.nlWrap {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Ligne séparatrice bioluminescente au-dessus du label */
+.nlWrap::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 2.5rem;
+  background: linear-gradient(to bottom, transparent, rgba(0, 191, 255, 0.35));
+  margin-bottom: 0.1rem;
+}
+
+.nlLabel {
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: rgba(200, 212, 232, 0.7);
+}
+
+.nlForm {
+  display: flex;
+  border: 1px solid rgba(0, 191, 255, 0.32);
+  background: rgba(0, 20, 65, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* Halo bioluminescent discret — le form "existe" dans le noir */
+  box-shadow:
+    0 0 40px rgba(0, 130, 255, 0.1),
+    0 0 0 1px rgba(0, 191, 255, 0.06) inset;
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
+
+.nlForm:focus-within {
+  border-color: rgba(0, 191, 255, 0.55);
+  box-shadow:
+    0 0 60px rgba(0, 130, 255, 0.18),
+    0 0 0 1px rgba(0, 191, 255, 0.12) inset;
+}
+
+.nlInput {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0.85rem 1.5rem;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--blanc);
+  width: 240px;
+}
+
+.nlInput::placeholder {
+  color: rgba(200, 212, 232, 0.48);
+}
+
+.nlButton {
+  background: none;
+  border: none;
+  border-left: 1px solid rgba(0, 191, 255, 0.22);
+  padding: 0.85rem 1.6rem;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(200, 212, 232, 0.75);
+  transition: color 0.3s, background 0.3s, border-color 0.3s;
+  white-space: nowrap;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nlButton:hover {
+  color: var(--or-vif);
+  background: rgba(200, 160, 75, 0.06);
+  border-left-color: rgba(200, 160, 75, 0.2);
+}
+
+/* ── ANIMATION earthHalo ── */
+@keyframes breathe {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.025);
+  }
+}
+
+/* ── FALLBACK backdrop-filter (Firefox Android) ── */
+@supports not (backdrop-filter: blur(1px)) {
+  .nlForm {
+    background: rgba(0, 12, 42, 0.96);
+  }
+}
+
+/* ── PREFERS-REDUCED-MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  .earthHalo {
+    animation: none;
+    opacity: 0.85;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   MOBILE (≤ 768px)
+   ═══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Espacement réduit — contenu doit tenir dans un écran sans scroll */
+  .seuil {
+    padding: 4.5rem 1.5rem 4rem;
+  }
+
+  /* Réduit le gap entre citation et titre */
+  .heroTitle {
+    margin-top: 2.8rem;
+  }
+
+  /* Réduit le gap vers la newsletter */
+  .nlWrap {
+    margin-top: 2rem;
+  }
+
+  /* Form pleine largeur — ne déborde pas sur 320px */
+  .nlForm {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  /* Input flexible — occupe tout l'espace restant */
+  .nlInput {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+    /* CRITIQUE : iOS Safari zoome automatiquement si font-size < 16px */
+    font-size: 1rem;
+    padding: 0.85rem 1rem;
+  }
+
+  /* letter-spacing réduit — 0.5em causait un overflow sur les textes long */
+  .sub {
+    letter-spacing: 0.22em;
+    font-size: 0.62rem;
+  }
+
+  /* Citation — espacement cité réduit */
+  .paulCitation cite {
+    letter-spacing: 0.25em;
+  }
+
+  /* earthHalo plus petite et repositionnée */
+  .earthHalo {
+    width: 100vw;
+    height: 100vw;
+    top: -25%;
+  }
+
+  /* Label "Révolution Bleue" — supprimé sur mobile */
+  .siteLabel {
+    display: none;
+  }
+}
+
+/* Petits écrans (≤ 390px, iPhone SE, Pixel 4a...) */
+@media (max-width: 390px) {
+  .seuil {
+    padding: 4rem 1.25rem 3.5rem;
+  }
+
+  .paulCitation p {
+    font-size: 1.35rem;
+  }
+
+  .heroTitle h1 {
+    font-size: 2.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  .heroTitle h1 em {
+    letter-spacing: 0.16em;
+  }
+
+  .sub {
+    letter-spacing: 0.15em;
+    font-size: 0.58rem;
+  }
+}

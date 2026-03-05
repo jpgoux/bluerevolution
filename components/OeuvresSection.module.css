@@ -1,0 +1,327 @@
+/* ═══════════════════════════════════════════════════
+   Section Les Œuvres — grille statique 4 + 1
+   Mobile-first. Couvertures portrait.
+   ═══════════════════════════════════════════════════ */
+
+.section {
+  position: relative;
+  padding: 6rem 1.5rem;
+  background: linear-gradient(to bottom, #040e22 0%, #020a18 60%, #030c1e 100%);
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 30% at 25% 65%, rgba(0, 60, 180, 0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 25% at 75% 30%, rgba(0, 191, 255, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ── En-tête ── */
+
+.intro {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.eyebrow {
+  color: var(--bleu-bio);
+}
+
+.h2 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.9rem, 6vw, 3rem);
+  line-height: 1.15;
+  color: var(--blanc);
+  margin-top: 1rem;
+}
+
+/* ── Rangée 4 livres ── */
+
+.row4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Rangée 1 livre centré ── */
+
+.row1 {
+  display: flex;
+  justify-content: center;
+}
+
+.row1 .bookWrap {
+  width: calc(50% - 0.625rem); /* même largeur qu'une colonne de la row4 sur mobile */
+}
+
+/* ── Wrapper livre ── */
+
+.bookWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ── Couverture ── */
+
+.cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem 0.85rem;
+  gap: 0.3rem;
+  box-shadow:
+    0 0 0 1px rgba(var(--accent-rgb, 0 191 255), 0.12),
+    0 12px 40px rgba(0, 0, 0, 0.6),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.cover:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 0 1px rgba(var(--accent-rgb, 0 191 255), 0.28),
+    0 20px 55px rgba(0, 0, 0, 0.7),
+    0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
+/* Overlay "Découvrir" au hover — romans uniquement */
+.coverOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 10, 40, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.cover:hover .coverOverlay {
+  opacity: 1;
+}
+
+.coverOverlayLabel {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: rgba(200, 212, 232, 0.9);
+  border: 1px solid rgba(200, 212, 232, 0.3);
+  padding: 0.5rem 1rem;
+}
+
+/* SVG PLB — couvre toute la couverture sans déformation */
+.coverSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Reflet lustré */
+.coverShine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 45%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  pointer-events: none;
+}
+
+.coverSerie {
+  font-family: var(--font-body);
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(var(--accent-rgb, 0 191 255), 1);
+  opacity: 0.8;
+  position: relative;
+  z-index: 1;
+}
+
+.coverTitre {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  line-height: 1.2;
+  color: var(--blanc);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Couverture dormante ── */
+
+.coverDormant {
+  cursor: default;
+}
+
+.coverDormant:hover {
+  transform: none;
+}
+
+.dormantVeil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 10, 60, 0.18) 0%,
+    transparent 55%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.coverDormant .coverSerie,
+.coverDormant .coverTitre {
+  z-index: 3;
+  opacity: 0.55;
+}
+
+/* ── Méta sous la couverture ── */
+
+.metaWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0 0.1rem;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.metaType {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(200, 212, 232, 0.75);
+}
+
+.metaSep {
+  font-size: 0.55rem;
+  color: rgba(200, 212, 232, 0.4);
+}
+
+.metaYear {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: rgba(200, 212, 232, 0.75);
+}
+
+.metaPublisher {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: rgba(200, 212, 232, 0.45);
+  font-weight: 200;
+}
+
+.metaTypeDormant {
+  color: rgba(0, 130, 220, 0.7);
+}
+
+.metaYearDormant {
+  color: rgba(0, 130, 220, 0.7);
+}
+
+/* ══════════════════════════════
+   Desktop — ≥ 769px
+   4 livres sur une seule rangée
+   ══════════════════════════════ */
+
+@media (min-width: 769px) {
+  .section {
+    padding: 9rem 2rem;
+  }
+
+  .intro {
+    margin-bottom: 4.5rem;
+  }
+
+  .row4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .row1 .bookWrap {
+    width: calc((100% - 3 * 1rem) / 4);
+  }
+
+  .cover {
+    padding: 1.2rem 1rem;
+  }
+
+  .coverSerie {
+    font-size: 0.55rem;
+  }
+
+  .coverTitre {
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+  }
+}
+
+/* ══════════════════════════════
+   Très petits mobiles — ≤ 390px
+   ══════════════════════════════ */
+
+@media (max-width: 390px) {
+  .section {
+    padding: 5rem 1.25rem;
+  }
+
+  .row4 {
+    gap: 0.85rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .row1 .bookWrap {
+    width: calc(50% - 0.425rem);
+  }
+}
+
+/* ══════════════════════════════
+   prefers-reduced-motion
+   ══════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .cover {
+    transition: none;
+  }
+
+  .cover:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,68 @@
+.cue {
+  position: fixed;
+  /* Safe area pour iPhone avec home indicator — évite d'être masqué */
+  bottom: max(2.5rem, calc(env(safe-area-inset-bottom) + 1rem));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  /* Zone tactile élargie — min 44px requis (Apple HIG / WCAG) */
+  padding: 0.6rem 1.2rem 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: rgba(200, 212, 232, 0.28);
+  transition: color 0.4s;
+}
+
+.cue:hover .label,
+.cue:focus-visible .label {
+  color: rgba(200, 212, 232, 0.65);
+}
+
+.line {
+  width: 1px;
+  height: 42px;
+  background: linear-gradient(to bottom, rgba(200, 212, 232, 0.28), transparent);
+  animation: pulseLine 2.8s ease-in-out infinite;
+  animation-delay: 9s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes pulseLine {
+  0%, 100% {
+    transform: scaleY(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scaleY(1.35);
+    opacity: 0.75;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line {
+    animation: none;
+    opacity: 0.35;
+  }
+}
+
+/* Sur mobile, letter-spacing réduit pour éviter le tronquage */
+@media (max-width: 390px) {
+  .label {
+    letter-spacing: 0.3em;
+    font-size: 0.55rem;
+  }
+}

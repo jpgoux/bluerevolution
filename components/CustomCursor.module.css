@@ -1,0 +1,56 @@
+/* ── CURSEUR — architecture CSS-transition ──────────────────────
+   Le trailing du ring est géré par CSS (hardware-accelerated),
+   pas par une boucle JS. Comportement identique à tout framerate.
+   ─────────────────────────────────────────────────────────────── */
+
+/* Point central — suit le curseur sans délai */
+.dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #00bfff;
+  box-shadow: 0 0 10px 3px rgba(0, 191, 255, 0.5);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  will-change: transform;
+}
+
+/* Wrapper du ring — positionné par JS, trailing via CSS transition */
+.ringWrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0;
+  will-change: transform;
+  /* La transition CSS est hardware-accelerated : fonctionne à tout framerate */
+  transition: transform 0.12s ease-out;
+}
+
+/* Anneau visuel — centré dans le wrapper, scale hover géré en CSS */
+.ring {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 191, 255, 0.25);
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease, border-color 0.25s;
+}
+
+/* Hover : agrandir l'anneau avec scale (pas de changement d'offset JS) */
+.ring.hovered {
+  transform: translate(-50%, -50%) scale(1.53);
+  border-color: rgba(0, 191, 255, 0.45);
+}
+
+@media (max-width: 768px) {
+  .dot,
+  .ringWrap {
+    display: none;
+  }
+}
