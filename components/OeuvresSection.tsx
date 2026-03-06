@@ -3,15 +3,16 @@
 import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { richText } from '@/lib/richText';
 import styles from './OeuvresSection.module.css';
 
 /* ── Données statiques — couleurs et gradient de couverture ── */
 const BOOKS = [
-  { key: 'rb1', type: 'Roman',  accentRgb: '80, 130, 230',  dormant: false },
-  { key: 'rb2', type: 'Roman',  accentRgb: '50, 90, 175',   dormant: false },
-  { key: 'sb1', type: 'Roman',  accentRgb: '210, 75, 55',   dormant: false },
-  { key: 'sb2', type: 'Roman',  accentRgb: '195, 95, 25',   dormant: false },
-  { key: 'plb', type: 'Essai',  accentRgb: '0, 80, 200',    dormant: true  },
+  { key: 'rb1', typeKey: 'roman', accentRgb: '80, 130, 230',  dormant: false },
+  { key: 'rb2', typeKey: 'roman', accentRgb: '50, 90, 175',   dormant: false },
+  { key: 'sb1', typeKey: 'roman', accentRgb: '210, 75, 55',   dormant: false },
+  { key: 'sb2', typeKey: 'roman', accentRgb: '195, 95, 25',   dormant: false },
+  { key: 'plb', typeKey: 'essai', accentRgb: '0, 80, 200',    dormant: true  },
 ] as const;
 
 type BookKey = (typeof BOOKS)[number]['key'];
@@ -54,7 +55,7 @@ export default function OeuvresSection() {
             {t('eyebrow')}
           </motion.span>
           <motion.h2 className={styles.h2} {...revealText(0.07)}>
-            {t('titre')}
+            {richText(t('titre'))}
           </motion.h2>
         </div>
 
@@ -79,14 +80,14 @@ export default function OeuvresSection() {
                   />
                   {/* Overlay page dédiée — visible au hover */}
                   <div className={styles.coverOverlay} aria-hidden="true">
-                    <span className={styles.coverOverlayLabel}>Découvrir →</span>
+                    <span className={styles.coverOverlayLabel}>{t('decouvrir')} →</span>
                   </div>
                   <div className={styles.coverShine} />
                 </div>
                 {/* Méta sous la couverture */}
                 <div className={styles.metaWrap}>
                   <p className={styles.meta}>
-                    <span className={styles.metaType}>{book.type}</span>
+                    <span className={styles.metaType}>{t(book.typeKey)}</span>
                     <span className={styles.metaSep}>·</span>
                     <span className={styles.metaYear}>{t(`${key}_annee`)}</span>
                   </p>
@@ -112,7 +113,7 @@ export default function OeuvresSection() {
             </div>
             <div className={styles.metaWrap}>
               <p className={styles.meta}>
-                <span className={`${styles.metaType} ${styles.metaTypeDormant}`}>Essai</span>
+                <span className={`${styles.metaType} ${styles.metaTypeDormant}`}>{t('essai')}</span>
                 <span className={styles.metaSep}>·</span>
                 <span className={`${styles.metaYear} ${styles.metaYearDormant}`}>
                   {t('plb_annee')}

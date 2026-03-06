@@ -4,11 +4,12 @@
     "tagline": "The metamorphosis of humanity"
   },
   "seuil": {
-    "citation": "\"We are at the dawn of the most beautiful adventure humanity has ever known.\"",
+    "citation": "\"We are at the dawn of humanity's most beautiful adventure.\"",
     "cite_auteur": "Paul Gardner",
-    "titre": "Blue",
-    "titre_bleu": "Revolution",
+    "titre": "Revolution",
+    "titre_bleu": "Blue",
     "sous_titre": "The metamorphosis of humanity",
+    "sous_titre_2": "Toward Homo biospheris",
     "nl_label": "Enter the Blue Revolution",
     "nl_placeholder": "your@email.com",
     "nl_bouton": "Join",
@@ -25,6 +26,7 @@
     "eyebrow": "The Charter · Homo biospheris",
     "titre": "The 10 Missions\nof Homo biospheris",
     "intro": "The missions of humanity, expressed as functions toward Gaia.",
+    "lire_signer": "Read and sign the Universal Charter",
     "m01": "Healing the Biosphere",
     "m01_desc": "Caring for the skin of the Earth. Every gesture that regenerates life is an act of evolution.",
     "m02": "Human Harmony",
@@ -36,7 +38,7 @@
     "m05": "Creating Bonds",
     "m05_desc": "Weaving connections between beings, cultures, species. The living fabric of the biosphere grows stronger.",
     "m06": "Circulating Love",
-    "m06_desc": "Circulating the energy of Love between humans and living beings — like a vital nutrient.",
+    "m06_desc": "Circulating the energy of Love between humans and living beings, like a vital nutrient.",
     "m07": "Enriching the World",
     "m07_desc": "Contributing to beauty, knowledge, culture. Each creation enriches the heritage of the species.",
     "m08": "Mysteries of the Soul",
@@ -44,7 +46,7 @@
     "m09": "Exploring the Cosmos",
     "m09_desc": "Extending human consciousness toward the stars. Paul Gardner looked at Earth from up there.",
     "m10": "Protecting the Earth",
-    "m10_desc": "Defending the integrity of Gaia. The original mission — the one all others depend on."
+    "m10_desc": "Defending the integrity of Gaia, the original mission on which all others depend."
   },
   "oeuvres": {
     "eyebrow": "The Imaginary",
@@ -59,13 +61,13 @@
     "rb2_titre": "La Clef des Songes",
     "rb2_annee": "2025",
     "rb2_publisher": "Eyrolles",
-    "rb2_desc": "The continuation of the journey. Abel now holds the Key — but is humanity ready to cross the door that Gaia opens?",
+    "rb2_desc": "The continuation of the journey. Abel now holds the Key. Is humanity ready to cross the door that Gaia opens?",
     "rb2_cta": "Discover",
     "sb1_serie": "Blue Century · I",
     "sb1_titre": "Le Rêve de Gaïa",
     "sb1_annee": "2021",
     "sb1_publisher": "Actes Sud · Babel noir",
-    "sb1_desc": "The first novel of the saga. Abel, a marine geologist, enters the Blue Cave and makes a discovery that will change his life — and perhaps humanity.",
+    "sb1_desc": "The first novel of the saga. Abel, a marine geologist, enters the Blue Cave and makes a discovery that will change his life, and perhaps humanity's.",
     "sb1_cta": "Discover",
     "sb2_serie": "Blue Century · II",
     "sb2_titre": "Ombres et Lumières",
@@ -80,7 +82,10 @@
     "plb_desc": "The essay that brings together thirty years of research on human mutation.",
     "nav_prev": "Previous",
     "nav_next": "Next",
-    "auteur": "Jean-Pierre Goux"
+    "auteur": "Jean-Pierre Goux",
+    "roman": "Novel",
+    "essai": "Essay",
+    "decouvrir": "Discover"
   },
   "revolution": {
     "eyebrow": "The Blue Revolution",
@@ -91,7 +96,7 @@
     "c1_texte": "The next evolutionary step. 8 billion humans forming a planetary collective in service of Gaia. What the Little Prince showed us 80 years ago.",
     "c2_num": "02",
     "c2_titre": "The Secret of the Little Prince",
-    "c2_texte": "On the cover since 1943, a sign that Saint-Exupéry had seen and hidden. The key to what we are destined to become — waiting to be read.",
+    "c2_texte": "On the cover since 1943, a sign that Saint-Exupéry had seen and hidden. The key to what we are destined to become.",
     "c3_num": "03",
     "c3_titre": "The Blue Cave",
     "c3_texte": "At the heart of the Earth, Abel discovers that Gaia exists. An initiatory place where the Great Secret of humanity is revealed in bioluminescent light.",
@@ -102,11 +107,11 @@
   "paul": {
     "eyebrow": "Paul Gardner",
     "titre": "Alone on the Moon,\nhe left us\na flame",
-    "para1": "American astronaut. Stranded on the Moon after the explosion of his base. Dead up there, looking down at Earth. Before he left, he wrote his manuscripts — the map toward our next evolution.",
-    "para2": "He looked at Earth from up there — blue, fragile, absolute. In dying on the Moon, he left us the only question that matters: will we become what we are capable of becoming?",
+    "para1": "American astronaut. Stranded on the Moon after the explosion of his base. Dead up there, looking down at Earth. Before he left, he wrote his manuscripts: the map of our next evolution.",
+    "para2": "He looked at Earth from up there: blue, fragile, absolute. In dying on the Moon, he left us the only question that matters. Will we become what we are capable of becoming?",
     "btn_trailer": "Watch the trailer",
     "btn_prologue": "Download the prologue PDF",
-    "video_label": "Alone on the Moon · AI Trailer",
+    "video_label": "Alone on the Moon · Trailer",
     "video_aria": "Watch the Alone on the Moon trailer"
   },
   "auteur": {
@@ -117,14 +122,20 @@
     "bio_courte": "Born in Nice in 1973. Engineer (ENSTA) and economist (Sorbonne), laureate of the SIAM Prize 2002 in mathematical optimization. Former researcher at Northwestern University and Argonne National Laboratory (Chicago). Former CEO of Powernext. Author of the Blue Century and Blue Revolution sagas. Founder of Biosphere Economics and the NGO OneHome. Former president of the Institut des Futurs souhaitables. Over 400 conferences. His goal: reconcile humanity and the biosphere.",
     "bio_toggle_open": "Full biography",
     "bio_toggle_close": "Full biography",
-    "bio_para1": "Former mathematics researcher at Northwestern University and Argonne National Laboratory (US Department of Energy) in Chicago, he is laureate of the SIAM 2002 Prize in mathematical optimization — a triennial award for the best research article worldwide in that field.",
+    "bio_para1": "Former mathematics researcher at Northwestern University and Argonne National Laboratory (US Department of Energy) in Chicago, he is laureate of the SIAM 2002 Prize in mathematical optimization, a triennial award for the best research article worldwide in that field.",
     "bio_para2": "After leading Powernext until 2019, he founded Biosphere Economics and chairs the NGO OneHome (videos of Earth filmed from space). Board member and former president of the Institut des futurs souhaitables (2019–2023).",
-    "bio_para3": "Author of the Blue Century saga (Actes Sud, 2021 & 2022) and the Blue Revolution series (Eyrolles, 2024 & 2025 — revolutionbleue.fr).",
+    "bio_para3": "Author of the Blue Century saga (Actes Sud, 2021 & 2022) and the Blue Revolution series (Eyrolles, 2024 & 2025, revolutionbleue.fr).",
     "linkedin": "LinkedIn",
     "instagram": "Instagram",
     "youtube": "YouTube",
     "contact": "Contact",
-    "photo_alt": "Jean-Pierre Goux"
+    "photo_alt": "Jean-Pierre Goux",
+    "tag1": "Ecological transition",
+    "tag2": "Energy",
+    "tag3": "Economics",
+    "tag4": "Futures",
+    "tag5": "Space",
+    "tag6": "Narratives"
   },
   "footer": {
     "marque": "Blue Revolution",

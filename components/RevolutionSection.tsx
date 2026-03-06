@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { richText } from '@/lib/richText';
 import styles from './RevolutionSection.module.css';
 
 /* ═══════════════════════════════════════════════════════
@@ -154,8 +155,8 @@ export default function RevolutionSection() {
                 {t(`${key}_num`)}
               </div>
 
-              <h3 className={styles.cardTitle}>{t(`${key}_titre`)}</h3>
-              <p className={styles.cardText}>{t(`${key}_texte`)}</p>
+              <h3 className={styles.cardTitle}>{richText(t(`${key}_titre`))}</h3>
+              <p className={styles.cardText}>{richText(t(`${key}_texte`))}</p>
             </motion.div>
           ))}
         </div>

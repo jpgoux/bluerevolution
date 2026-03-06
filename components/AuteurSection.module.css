@@ -79,6 +79,19 @@
   margin-bottom: 0.8rem;
 }
 
+/* ── Liens dans la bio ── */
+.bioLink {
+  color: rgba(0, 191, 255, 0.65);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 191, 255, 0.25);
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.bioLink:hover {
+  color: var(--bleu-bio);
+  border-color: rgba(0, 191, 255, 0.6);
+}
+
 /* ── Toggle bio complète ── */
 .toggleBtn {
   display: flex;
@@ -147,39 +160,57 @@
 /* ── Liens réseaux ── */
 .links {
   display: flex;
-  gap: 1.2rem;
+  gap: 1.4rem;
   flex-wrap: wrap;
   align-items: center;
 }
 
-/* Réseaux sociaux — blanc bien visible */
+/* Icônes */
+.icon {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.iconContact {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+/* Réseaux sociaux — icône + label, blanc bien visible */
 .link {
-  font-size: 0.58rem;
-  letter-spacing: 0.28em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.55rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 300;
-  color: rgba(200, 212, 232, 0.75);
+  color: rgba(200, 212, 232, 0.65);
   text-decoration: none;
-  border-bottom: 1px solid rgba(200, 212, 232, 0.25);
-  padding-bottom: 0.2rem;
-  transition: color 0.3s, border-color 0.3s;
+  transition: color 0.3s;
+  min-height: 44px; /* touch target */
 }
 
 .link:hover {
   color: var(--blanc);
-  border-color: rgba(200, 212, 232, 0.6);
 }
 
 /* Bouton Contact — bleu bioluminescent très visible */
 .linkContact {
-  font-size: 0.58rem;
-  letter-spacing: 0.28em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.55rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 300;
   color: var(--bleu-bio);
   text-decoration: none;
   border: 1px solid rgba(0, 191, 255, 0.45);
-  padding: 0.45rem 1rem;
+  padding: 0.55rem 1.1rem;
+  min-height: 44px;
   transition: color 0.3s, border-color 0.3s, background 0.3s, box-shadow 0.3s;
   box-shadow: 0 0 12px rgba(0, 191, 255, 0.15);
 }
@@ -193,17 +224,48 @@
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
+  .section {
+    padding: 6rem 1.5rem;
+  }
+
   .grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
   .photo {
-    width: 140px;
+    width: 130px;
     margin: 0 auto;
+  }
+
+  .photoWrap {
+    display: flex;
+    justify-content: center;
   }
 
   .tags {
     gap: 0.4rem;
+  }
+
+  .links {
+    gap: 1rem;
+  }
+
+  /* Touch targets sur mobile */
+  .link,
+  .linkContact {
+    min-height: 44px;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .section {
+    padding: 5rem 1.25rem;
+  }
+
+  .text h2 {
+    font-size: 1.75rem;
   }
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
@@ -13,6 +14,8 @@ type Props = {
 export default function PaulGardnerSection({ videoUrl, pdfUrl }: Props) {
   const t = useTranslations('paul');
   const shouldReduce = useReducedMotion();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
 
   const reveal = (delay = 0) =>
     shouldReduce
@@ -28,26 +31,29 @@ export default function PaulGardnerSection({ videoUrl, pdfUrl }: Props) {
           },
         };
 
-  const videoInner = (
-    <>
-      <Image
-        src="/paul-gardner-hero.jpg"
-        alt=""
-        fill
-        sizes="(max-width: 768px) 100vw, 50vw"
-        style={{ objectFit: 'cover' }}
-        className={styles.heroImg}
-      />
-      <div className={styles.videoOverlay} aria-hidden="true" />
-      <div className={styles.play} aria-hidden="true">
-        {/* Play triangle */}
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M8 5v14l11-7z" />
-        </svg>
-      </div>
-      <span className={styles.videoTag}>{t('video_label')}</span>
-    </>
-  );
+  const handlePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play();
+      setPlaying(true);
+      window.dispatchEvent(new CustomEvent('ambient:pause'));
+    } else {
+      v.pause();
+      setPlaying(false);
+      window.dispatchEvent(new CustomEvent('ambient:resume'));
+    }
+  };
+
+  const handleFullscreen = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.requestFullscreen) v.requestFullscreen();
+    else if ((v as HTMLVideoElement & { webkitEnterFullscreen?: () => void }).webkitEnterFullscreen) {
+      (v as HTMLVideoElement & { webkitEnterFullscreen?: () => void }).webkitEnterFullscreen!();
+    }
+  };
 
   return (
     <section className={styles.section} id="paul-gardner">
@@ -73,16 +79,6 @@ export default function PaulGardnerSection({ videoUrl, pdfUrl }: Props) {
 
           <motion.div className={styles.actions} {...reveal(0.2)}>
             <button
-              className={`btn-primary ${styles.btnPrimary}`}
-              onClick={() => videoUrl && window.open(videoUrl, '_blank')}
-              aria-disabled={!videoUrl}
-              data-cursor="true"
-            >
-              <span aria-hidden="true">▶</span>
-              {t('btn_trailer')}
-            </button>
-
-            <button
               className={`btn-ghost ${styles.btnGhost}`}
               onClick={() => pdfUrl && window.open(pdfUrl, '_blank')}
               aria-disabled={!pdfUrl}
@@ -93,24 +89,63 @@ export default function PaulGardnerSection({ videoUrl, pdfUrl }: Props) {
           </motion.div>
         </div>
 
-        {/* ── Colonne droite : placeholder vidéo 16/9 ── */}
+        {/* ── Colonne droite : vidéo ── */}
         <motion.div className={styles.videoWrap} {...reveal(0.08)}>
-          {videoUrl ? (
-            <a
-              href={videoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.videoBox}
-              aria-label={t('video_aria')}
-              data-cursor="true"
-            >
-              {videoInner}
-            </a>
-          ) : (
-            <div className={styles.videoBox} aria-label={t('video_label')}>
-              {videoInner}
-            </div>
-          )}
+          <div
+            className={styles.videoBox}
+            onClick={videoUrl ? handlePlay : undefined}
+            role={videoUrl ? 'button' : undefined}
+            aria-label={t('video_aria')}
+            style={{ cursor: videoUrl ? 'pointer' : 'default' }}
+          >
+            {videoUrl ? (
+              <video
+                ref={videoRef}
+                src={videoUrl}
+                poster="/paul-gardner-hero.jpg"
+                className={styles.heroVideo}
+                playsInline
+                preload="none"
+                onEnded={() => {
+                  setPlaying(false);
+                  window.dispatchEvent(new CustomEvent('ambient:resume'));
+                }}
+              />
+            ) : (
+              <Image
+                src="/paul-gardner-hero.jpg"
+                alt=""
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ objectFit: 'cover' }}
+                className={styles.heroImg}
+              />
+            )}
+            <div className={styles.videoOverlay} aria-hidden="true" />
+            {!playing && (
+              <div className={styles.playWrap} aria-hidden="true">
+                <div className={styles.play}>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+                <span className={styles.playLabel}>{t('btn_trailer')}</span>
+              </div>
+            )}
+            {videoUrl && (
+              <button
+                className={styles.fullscreenBtn}
+                onClick={handleFullscreen}
+                aria-label="Plein écran"
+                title="Plein écran"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M16 21h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+                </svg>
+              </button>
+            )}
+          </div>
+        <span className={styles.videoTag}>{t('video_label')}</span>
         </motion.div>
 
       </div>

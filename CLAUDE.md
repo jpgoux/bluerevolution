@@ -153,6 +153,17 @@ Le tester fait partie intégrante de chaque session — ce n'est pas une étape 
 - ❌ Annoncer le Petit Livre bleu avant l'automne 2026 — la section reste dormante
 - ❌ Présenter Paul Gardner comme personnage fictif
 
+### Traduction FR/EN — IMPÉRATIF
+- ❌ **Ne JAMAIS hardcoder du texte visible en français uniquement.** Tout contenu affiché à l'utilisateur doit exister dans `messages/fr.json` ET `messages/en.json`, ou être rendu conditionnellement via `useLocale()` / `isFr` avec les deux versions JSX.
+- ❌ Ne jamais laisser un tableau statique de chaînes en français (ex. TAGS, types de livres) sans passer par les fichiers de traduction.
+- ✅ Vérifier systématiquement en fin de session que `http://localhost:XXXX/en` affiche tout en anglais.
+- ✅ Pour les textes enrichis (liens, balises `<em>`) : utiliser un rendu conditionnel `isFr ? <JSX FR> : <JSX EN>` plutôt que de mettre du HTML dans les JSON.
+
+### Écriture — Style humain IMPÉRATIF
+- ❌ **Ne JAMAIS utiliser le tiret cadratin (—) dans les textes visibles par l'utilisateur.** C'est la signature la plus reconnaissable d'un texte rédigé par IA. Reformuler systématiquement avec une ponctuation naturelle : virgule, deux-points, point, parenthèse, ou restructurer la phrase.
+- ❌ Ne pas utiliser de formules creuses ou abstraites qui sonnent "IA" : "naviguer vers", "tisser des liens entre", "au croisement de", "au cœur de l'expérience", etc.
+- ✅ Phrases courtes. Rythme irrégulier. Ponctuation humaine.
+
 ---
 
 ## 10. Contenu — Les 5 livres

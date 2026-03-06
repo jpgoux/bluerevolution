@@ -181,10 +181,10 @@
   }
 }
 
-/* EN : REVOLUTION en contour, BLUE rempli bleu + glow */
+/* EN : REVOLUTION blanc (identique à RÉVOLUTION en FR), BLUE rempli bleu */
 .heroTitleEn h1 {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(90, 150, 255, 0.55);
+  color: var(--blanc);
+  -webkit-text-stroke: 0;
 }
 
 .heroTitleEn h1 em {

@@ -1,0 +1,136 @@
+.section {
+  margin-top: 5rem;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 191, 255, 0.1);
+  border: none;
+  margin: 0 0 3rem;
+}
+
+/* Compteur temps réel */
+.compteur {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--blanc-2);
+  text-align: center;
+  margin: 0 0 3rem;
+  opacity: 0.75;
+  letter-spacing: 0.02em;
+}
+
+.indisponible {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: rgba(200, 212, 232, 0.3);
+  text-align: center;
+  margin: 0 0 3rem;
+}
+
+/* Confirmation */
+.confirmation {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--or);
+  text-align: center;
+  margin: 0 0 4rem;
+  letter-spacing: 0.05em;
+}
+
+/* Formulaire */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.field,
+.fieldFull {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: rgba(200, 212, 232, 0.45);
+}
+
+.input,
+.select {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 191, 255, 0.12);
+  border-radius: 2px;
+  padding: 0.7rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 200;
+  color: var(--blanc);
+  width: 100%;
+  transition: border-color 0.3s, background 0.3s;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(0,191,255,0.4)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  padding-right: 2.5rem;
+  /* Options styling for dark background */
+  color-scheme: dark;
+}
+
+.input::placeholder {
+  color: rgba(200, 212, 232, 0.2);
+}
+
+.input:focus,
+.select:focus {
+  border-color: rgba(0, 191, 255, 0.35);
+  background: rgba(0, 191, 255, 0.04);
+}
+
+.erreur {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(255, 120, 100, 0.85);
+  font-weight: 200;
+  margin: 0;
+}
+
+.bouton {
+  margin-top: 0.75rem;
+  align-self: center;
+  min-width: 240px;
+}
+
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .bouton {
+    width: 100%;
+    min-width: unset;
+  }
+}

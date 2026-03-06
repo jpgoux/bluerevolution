@@ -4,11 +4,12 @@
     "tagline": "La métamorphose de l'humanité"
   },
   "seuil": {
-    "citation": "« Nous sommes à l'aube de la plus belle aventure que l'humanité ait jamais connue. »",
+    "citation": "« Nous sommes à l'aube de la plus belle aventure de l'humanité. »",
     "cite_auteur": "Paul Gardner",
     "titre": "Révolution",
     "titre_bleu": "Bleue",
     "sous_titre": "La métamorphose de l'humanité",
+    "sous_titre_2": "Vers Homo biospheris",
     "nl_label": "Entrer dans la Révolution bleue",
     "nl_placeholder": "votre@email.com",
     "nl_bouton": "Rejoindre",
@@ -25,6 +26,7 @@
     "eyebrow": "La Charte · Homo biospheris",
     "titre": "Les 10 missions\nd'Homo biospheris",
     "intro": "Les missions de l'humanité, exprimées en fonctions envers Gaïa.",
+    "lire_signer": "Lire et signer la Charte universelle",
     "m01": "Soigner la Biosphère",
     "m01_desc": "Prendre soin de la peau de la Terre. Chaque geste qui régénère le vivant est un acte d'évolution.",
     "m02": "Harmonie humaine",
@@ -36,7 +38,7 @@
     "m05": "Créer des liens",
     "m05_desc": "Tisser des connexions entre êtres, cultures, espèces. Le tissu vivant de la biosphère se renforce.",
     "m06": "Circuler l'amour",
-    "m06_desc": "Faire circuler l'énergie de l'Amour entre les humains et le vivant — comme un nutriment vital.",
+    "m06_desc": "Faire circuler l'énergie de l'Amour entre les humains et le vivant, tel un nutriment vital.",
     "m07": "Enrichir le monde",
     "m07_desc": "Contribuer à la beauté, à la connaissance, à la culture. Chaque création enrichit le patrimoine de l'espèce.",
     "m08": "Mystères de l'âme",
@@ -44,7 +46,7 @@
     "m09": "Explorer le Cosmos",
     "m09_desc": "Étendre la conscience humaine vers les étoiles. Paul Gardner regardait la Terre depuis là-haut.",
     "m10": "Protéger la Terre",
-    "m10_desc": "Défendre l'intégrité de Gaïa. La mission originelle — celle dont dépendent toutes les autres."
+    "m10_desc": "Défendre l'intégrité de Gaïa, la mission originelle dont dépendent toutes les autres."
   },
   "oeuvres": {
     "eyebrow": "L'Imaginaire",
@@ -59,13 +61,13 @@
     "rb2_titre": "La Clef des Songes",
     "rb2_annee": "2025",
     "rb2_publisher": "Eyrolles",
-    "rb2_desc": "La continuation du voyage. Abel détient maintenant la Clef — mais l'humanité est-elle prête à franchir la porte que Gaïa lui ouvre ?",
+    "rb2_desc": "La continuation du voyage. Abel détient maintenant la Clef. L'humanité est-elle prête à franchir la porte que Gaïa lui ouvre ?",
     "rb2_cta": "Découvrir",
     "sb1_serie": "Siècle Bleu · I",
     "sb1_titre": "Le Rêve de Gaïa",
     "sb1_annee": "2021",
     "sb1_publisher": "Actes Sud · Babel noir",
-    "sb1_desc": "Le premier roman de la saga. Abel, géologue marin, pénètre dans la Grotte bleue et fait une découverte qui va changer sa vie — et peut-être l'humanité.",
+    "sb1_desc": "Le premier roman de la saga. Abel, géologue marin, pénètre dans la Grotte bleue et fait une découverte qui va changer sa vie, et peut-être celle de l'humanité.",
     "sb1_cta": "Découvrir",
     "sb2_serie": "Siècle Bleu · II",
     "sb2_titre": "Ombres et Lumières",
@@ -80,7 +82,10 @@
     "plb_desc": "L'essai qui réunit trente ans de recherche sur la mutation humaine.",
     "nav_prev": "Précédent",
     "nav_next": "Suivant",
-    "auteur": "Jean-Pierre Goux"
+    "auteur": "Jean-Pierre Goux",
+    "roman": "Roman",
+    "essai": "Essai",
+    "decouvrir": "Découvrir"
   },
   "revolution": {
     "eyebrow": "La Révolution bleue",
@@ -91,7 +96,7 @@
     "c1_texte": "La prochaine étape évolutive. 8 milliards d'humains formant un collectif planétaire au service de Gaïa. Ce que le Petit Prince nous montrait depuis 80 ans.",
     "c2_num": "02",
     "c2_titre": "Le secret du Petit Prince",
-    "c2_texte": "Sur la couverture depuis 1943, un signe que Saint-Exupéry avait vu et caché. La clé de ce que nous sommes destinés à devenir — attendant d'être lu.",
+    "c2_texte": "Sur la couverture depuis 1943, un signe que Saint-Exupéry avait vu et caché. La clé de ce que nous sommes destinés à devenir.",
     "c3_num": "03",
     "c3_titre": "La Grotte bleue",
     "c3_texte": "Au cœur de la Terre, Abel découvre que Gaïa existe. Un lieu initiatique où le Grand Secret de l'humanité est révélé dans la lumière bioluminescente.",
@@ -102,11 +107,11 @@
   "paul": {
     "eyebrow": "Paul Gardner",
     "titre": "Seul sur la Lune,\nil nous a laissé\nune flamme",
-    "para1": "Astronaute américain. Bloqué sur la Lune après l'explosion de sa base. Mort là-haut en regardant la Terre. Avant de partir, il a écrit ses manuscrits — la carte vers notre prochaine évolution.",
-    "para2": "Il a regardé la Terre de là-haut — bleue, fragile, absolue. En mourant sur la Lune, il nous a transmis la seule question qui compte : allons-nous devenir ce que nous sommes capables d'être ?",
+    "para1": "Astronaute américain. Bloqué sur la Lune après l'explosion de sa base. Mort là-haut en regardant la Terre. Avant de partir, il a écrit ses manuscrits : la carte de notre prochaine évolution.",
+    "para2": "Il a regardé la Terre de là-haut : bleue, fragile, absolue. En mourant sur la Lune, il nous a transmis la seule question qui compte. Allons-nous devenir ce que nous sommes capables d'être ?",
     "btn_trailer": "Voir le trailer",
     "btn_prologue": "Télécharger le prologue PDF",
-    "video_label": "Seul sur la Lune · Trailer IA",
+    "video_label": "Seul sur la Lune · Trailer",
     "video_aria": "Regarder le trailer de Seul sur la Lune"
   },
   "auteur": {
@@ -117,14 +122,20 @@
     "bio_courte": "Né à Nice en 1973. Ingénieur ENSTA et économiste (Sorbonne), lauréat du prix SIAM 2002 en optimisation mathématique. Ancien chercheur à Northwestern University et Argonne National Laboratory (Chicago). Ancien directeur général de Powernext. Auteur des sagas Siècle bleu et Révolution bleue. Fondateur de Biosphere Economics et de l'ONG OneHome. Ancien président de l'Institut des Futurs souhaitables. Plus de 400 conférences. Son but : réconcilier l'humanité et la biosphère.",
     "bio_toggle_open": "Biographie complète",
     "bio_toggle_close": "Biographie complète",
-    "bio_para1": "Ancien chercheur en mathématiques à Northwestern University et à l'Argonne National Laboratory (ministère de l'Énergie américain) à Chicago, il est lauréat du prix SIAM 2002 en optimisation mathématique — récompense triennale du meilleur article de recherche mondial dans ce domaine.",
+    "bio_para1": "Ancien chercheur en mathématiques à Northwestern University et à l'Argonne National Laboratory (ministère de l'Énergie américain) à Chicago, il est lauréat du prix SIAM 2002 en optimisation mathématique, récompense triennale du meilleur article de recherche mondial dans ce domaine.",
     "bio_para2": "Après avoir dirigé Powernext jusqu'en 2019, il fonde Biosphere Economics et préside l'ONG OneHome (vidéos de la Terre filmées depuis l'espace). Administrateur et ancien président de l'Institut des futurs souhaitables (2019–2023).",
-    "bio_para3": "Auteur des sagas Siècle Bleu (Actes Sud, 2021 & 2022) et Révolution bleue (Eyrolles, 2024 & 2025 — revolutionbleue.fr).",
+    "bio_para3": "Auteur des sagas Siècle Bleu (Actes Sud, 2021 & 2022) et Révolution bleue (Eyrolles, 2024 & 2025, revolutionbleue.fr).",
     "linkedin": "LinkedIn",
     "instagram": "Instagram",
     "youtube": "YouTube",
     "contact": "Contact",
-    "photo_alt": "Jean-Pierre Goux"
+    "photo_alt": "Jean-Pierre Goux",
+    "tag1": "Transition écologique",
+    "tag2": "Énergie",
+    "tag3": "Économie",
+    "tag4": "Prospective",
+    "tag5": "Espace",
+    "tag6": "Récits"
   },
   "footer": {
     "marque": "Révolution Bleue",

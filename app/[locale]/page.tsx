@@ -5,7 +5,6 @@ import { motion, useReducedMotion } from 'framer-motion';
 import StarField from '@/components/StarField';
 import CustomCursor from '@/components/CustomCursor';
 import NavConstellation from '@/components/NavConstellation';
-import ScrollCue from '@/components/ScrollCue';
 import LangSwitcher from '@/components/LangSwitcher';
 import PaulGardnerSection from '@/components/PaulGardnerSection';
 import RevolutionSection from '@/components/RevolutionSection';
@@ -13,6 +12,8 @@ import CharteSection from '@/components/CharteSection';
 import OeuvresSection from '@/components/OeuvresSection';
 import AuteurSection from '@/components/AuteurSection';
 import SiteFooter from '@/components/SiteFooter';
+import SoundButton from '@/components/SoundButton';
+import { richText } from '@/lib/richText';
 import styles from './page.module.css';
 
 export default function SeuilPage() {
@@ -64,7 +65,7 @@ export default function SeuilPage() {
         aria-hidden="true"
         {...fadeIn(1.8, 1.0)}
       >
-        Révolution Bleue
+        {locale === 'en' ? 'Blue Revolution' : 'Révolution Bleue'}
       </motion.div>
 
       <LangSwitcher />
@@ -96,10 +97,20 @@ export default function SeuilPage() {
             )}
           >
             <h1>
-              {t('titre')}
-              <em>{t('titre_bleu')}</em>
+              {locale === 'en' ? (
+                <>
+                  <em>{t('titre_bleu')}</em>
+                  {t('titre')}
+                </>
+              ) : (
+                <>
+                  {t('titre')}
+                  <em>{t('titre_bleu')}</em>
+                </>
+              )}
             </h1>
             <p className={styles.sub}>{t('sous_titre')}</p>
+            <p className={styles.sub}>{richText(t('sous_titre_2'))}</p>
           </motion.div>
 
           {/* Newsletter discrète */}
@@ -126,7 +137,7 @@ export default function SeuilPage() {
 
         {/* ── Section Paul Gardner ── */}
         <PaulGardnerSection
-          videoUrl={null}
+          videoUrl="/trailer.mp4"
           pdfUrl={null}
         />
 
@@ -147,8 +158,9 @@ export default function SeuilPage() {
       {/* ── Footer ── */}
       <SiteFooter />
 
-      {/* ── Indicateur de défilement ── */}
-      <ScrollCue />
+      {/* ── Bouton son ambiant ── */}
+      <SoundButton />
+
     </>
   );
 }

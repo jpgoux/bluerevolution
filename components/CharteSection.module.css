@@ -140,3 +140,70 @@
     transition: none;
   }
 }
+
+/* ── CTA Charte — clou de la section ── */
+.charteLink {
+  margin-top: 3.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.charteLinkAnchor {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  color: var(--blanc);
+  text-decoration: none;
+
+  padding: 1.1rem 2.4rem;
+  border: 1px solid rgba(0, 191, 255, 0.35);
+  border-radius: 2px;
+
+  background: rgba(0, 191, 255, 0.04);
+  box-shadow:
+    0 0 24px rgba(0, 191, 255, 0.08),
+    inset 0 0 24px rgba(0, 191, 255, 0.03);
+
+  transition:
+    color 0.4s,
+    border-color 0.4s,
+    background 0.4s,
+    box-shadow 0.4s,
+    transform 0.4s;
+}
+
+.charteLinkAnchor:hover {
+  color: #00ffff;
+  border-color: rgba(0, 207, 255, 0.65);
+  background: rgba(0, 191, 255, 0.08);
+  box-shadow:
+    0 0 40px rgba(0, 191, 255, 0.18),
+    0 0 80px rgba(0, 191, 255, 0.08),
+    inset 0 0 30px rgba(0, 191, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.charteLinkSub {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: rgba(200, 212, 232, 0.28);
+}
+
+@media (max-width: 768px) {
+  .charteLinkAnchor {
+    padding: 1rem 1.6rem;
+    font-size: 1rem;
+  }
+}

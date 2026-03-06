@@ -1,13 +1,15 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { richText } from '@/lib/richText';
 import styles from './CharteSection.module.css';
 
 const MISSIONS = ['01','02','03','04','05','06','07','08','09','10'] as const;
 
 export default function CharteSection() {
   const t = useTranslations('charte');
+  const locale = useLocale();
   const shouldReduce = useReducedMotion();
 
   const revealText = (delay = 0) =>
@@ -41,10 +43,10 @@ export default function CharteSection() {
         {/* ── En-tête ── */}
         <div className={styles.intro}>
           <motion.span className={`eyebrow ${styles.eyebrow}`} {...revealText(0)}>
-            {t('eyebrow')}
+            {richText(t('eyebrow'))}
           </motion.span>
           <motion.h2 className={styles.h2} {...revealText(0.06)}>
-            {t('titre')}
+            {richText(t('titre'))}
           </motion.h2>
           <motion.p className={styles.subtitle} {...revealText(0.12)}>
             {t('intro')}
@@ -67,6 +69,19 @@ export default function CharteSection() {
             );
           })}
         </div>
+
+        {/* ── CTA Charte ── */}
+        <motion.div className={styles.charteLink} {...revealText(0.5)}>
+          <a href={`/${locale}/charte`} className={styles.charteLinkAnchor}>
+            {t('lire_signer')}
+            <span aria-hidden="true">→</span>
+          </a>
+          <span className={styles.charteLinkSub}>
+            {locale === 'fr'
+              ? 'Déclaration universelle · 10 missions fondamentales'
+              : 'Universal declaration · 10 fundamental missions'}
+          </span>
+        </motion.div>
 
       </div>
     </section>

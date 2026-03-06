@@ -19,7 +19,7 @@ export default function LangSwitcher() {
       className={styles.lang}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 2, ease: 'easeOut', delay: 5.5 }}
+      transition={{ duration: 1.2, ease: 'easeOut', delay: 1.2 }}
     >
       <button
         className={locale === 'fr' ? styles.active : ''}

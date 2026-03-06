@@ -1,0 +1,299 @@
+/* ═══════════════════════════════════════════════════
+   Page Charte universelle d'Homo biospheris
+   Document fondateur — typographie monumentale
+   ═══════════════════════════════════════════════════ */
+
+.page {
+  background:
+    radial-gradient(ellipse 140% 55% at 50% 0%,   rgba(0, 40, 120, 0.55) 0%,  transparent 60%),
+    radial-gradient(ellipse 80%  40% at 80% 80%,   rgba(0, 20, 80,  0.35) 0%,  transparent 55%),
+    linear-gradient(180deg, #040D21 0%, #061422 40%, #050E1C 70%, #030A15 100%);
+  min-height: 100dvh;
+  color: var(--blanc);
+}
+
+/* ── Header ── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(4, 13, 33, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 191, 255, 0.06);
+}
+
+.backLink {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: rgba(200, 212, 232, 0.35);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.backLink:hover {
+  color: rgba(200, 212, 232, 0.75);
+}
+
+.langWrap {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.langActive {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  font-weight: 300;
+  color: rgba(0, 207, 255, 0.9);
+  text-shadow: 0 0 12px rgba(0, 191, 255, 0.5);
+  text-decoration: none;
+}
+
+.langInactive {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  font-weight: 300;
+  color: rgba(0, 191, 255, 0.35);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.langInactive:hover {
+  color: rgba(0, 191, 255, 0.75);
+}
+
+.langSep {
+  color: rgba(0, 191, 255, 0.15);
+  font-size: 0.5rem;
+  user-select: none;
+}
+
+/* ── Colonne centrale ── */
+.content {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 5rem 2rem 8rem;
+}
+
+/* ── Épigraphe ── */
+.epigraphe {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  color: var(--or);
+  text-align: center;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* ── Séparateurs ── */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 191, 255, 0.1);
+  margin: 3.5rem 0;
+  border: none;
+}
+
+/* ── Titre monumental ── */
+.titre {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 6.5vw, 4.6rem);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--blanc);
+  text-align: center;
+  line-height: 1.22;
+  margin: 0;
+}
+
+/* ── Préambule ── */
+.preambule {
+  margin: 0;
+}
+
+.preambuleTitre {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--blanc);
+  text-align: center;
+  margin: 0 0 2.5rem;
+}
+
+.preambuleP {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.18rem;
+  color: var(--blanc-2);
+  line-height: 1.92;
+  margin: 0 0 2rem;
+}
+
+.preambuleP:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Liste des missions ── */
+.missions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mission {
+  padding: 2.75rem 0;
+  border-top: 1px solid rgba(0, 191, 255, 0.09);
+}
+
+.mission:last-child {
+  border-bottom: 1px solid rgba(0, 191, 255, 0.09);
+}
+
+/* Numéro bioluminescent */
+.missionNumero {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 2.4rem;
+  line-height: 1;
+  text-align: center;
+  color: #00ffff;
+  text-shadow:
+    0 0 18px rgba(0, 255, 255, 0.55),
+    0 0 40px rgba(0, 255, 255, 0.22),
+    0 0 80px rgba(0, 191, 255, 0.1);
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+/* Titre de la mission */
+.missionTitre {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.45rem;
+  color: var(--blanc);
+  text-align: center;
+  margin: 0 0 1.25rem;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+}
+
+/* Texte de la mission */
+.missionTexte {
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.9rem;
+  line-height: 1.98;
+  color: var(--blanc-2);
+  margin: 0;
+}
+
+/* ── Bloc signature (haut + bas) ── */
+.signerWrap {
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.compteur {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.15rem, 3vw, 1.55rem);
+  color: var(--blanc);
+  text-align: center;
+  margin: 0;
+  line-height: 1.65;
+}
+
+.compteur strong {
+  font-style: normal;
+  font-weight: 600;
+  color: #00ffff;
+  text-shadow: 0 0 14px rgba(0, 255, 255, 0.45);
+}
+
+/* ── Proclamation finale ── */
+.proclamationWrap {
+  padding: 3.5rem 0 3rem;
+  text-align: center;
+}
+
+.etoiles {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--or);
+  letter-spacing: 1.2rem;
+  margin-bottom: 3rem;
+  opacity: 0.75;
+}
+
+.proclamation {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.18rem;
+  color: var(--blanc);
+  line-height: 1.88;
+  text-align: center;
+  margin: 0;
+}
+
+/* ═══════════════════════════
+   Responsive
+   ═══════════════════════════ */
+@media (max-width: 768px) {
+  .content {
+    padding: 4rem 1.5rem 7rem;
+  }
+
+  .titre {
+    letter-spacing: 0.14em;
+  }
+
+  .preambuleP {
+    font-size: 1.05rem;
+  }
+
+  .mission {
+    padding: 3.5rem 0;
+  }
+
+  .missionNumero {
+    font-size: 2.4rem;
+  }
+
+  .missionTitre {
+    font-size: 1.3rem;
+  }
+
+  .missionTexte {
+    font-size: 0.88rem;
+  }
+
+  .proclamation {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .content {
+    padding: 3rem 1.25rem 6rem;
+  }
+}
