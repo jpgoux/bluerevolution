@@ -8,7 +8,7 @@ import styles from './NavConstellation.module.css';
 const NAV_ITEMS = [
   { key: 'paul_gardner', href: '/paul-gardner' as const },
   { key: 'revolution',   href: '/revolution'   as const },
-  { key: 'charte',       href: '/charte'       as const },
+  { key: 'charte',       href: '/charter'      as const },
   { key: 'oeuvres',      href: '/oeuvres'      as const },
   { key: 'auteur',       href: '/rejoindre'    as const },
 ] as const;

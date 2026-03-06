@@ -3,7 +3,6 @@
 import { useTranslations, useLocale } from 'next-intl';
 import { motion, useReducedMotion } from 'framer-motion';
 import StarField from '@/components/StarField';
-import CustomCursor from '@/components/CustomCursor';
 import NavConstellation from '@/components/NavConstellation';
 import LangSwitcher from '@/components/LangSwitcher';
 import PaulGardnerSection from '@/components/PaulGardnerSection';
@@ -70,9 +69,6 @@ export default function SeuilPage() {
 
       <LangSwitcher />
       <NavConstellation />
-
-      {/* ── Curseur custom (desktop uniquement) ── */}
-      <CustomCursor />
 
       {/* ── Contenu principal ── */}
       <main className={styles.main}>
